@@ -39,9 +39,7 @@ NSString *const AudioRecorderEventFinished = @"recordingFinished";
 
 RCT_EXPORT_MODULE();
 
-+ (BOOL)requiresMainQueueSetup {
-  return YES;
-}
+
 
 - (void)sendProgressUpdate {
   if (_audioRecorder && _audioRecorder.isRecording) {
@@ -323,5 +321,7 @@ RCT_EXPORT_METHOD(requestAuthorization:(RCTPromiseResolveBlock)resolve
     @"NSLibraryDirectoryPath": [self getPathForDirectory:NSLibraryDirectory]
   };
 }
-
++ (BOOL)requiresMainQueueSetup {
+  return YES;
+}
 @end
